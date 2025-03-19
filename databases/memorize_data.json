@@ -1,0 +1,56 @@
+{
+	"banners": {
+		"J15eO21cl61f": {
+			"id": "J15eO21cl61f",
+			"name": "names",
+			"note": "",
+			"size": "300x300",
+			"icon": "ti ti-adjust",
+			"color": "",
+			"device": "all",
+			"isdisabled": false,
+			"roundedcorners": false,
+			"visitors": 3,
+			"dtcreated": "2025-03-18T02:24:37.066Z",
+			"stats": [
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			"campaigns": 1,
+			"dtupdated": "2025-03-18T02:25:37.079Z"
+		},
+		"J15fjg1c661f": {
+			"id": "J15fjg1c661f",
+			"name": "anime",
+			"note": "",
+			"size": "780x90",
+			"icon": "ti ti-game-board-alt",
+			"color": "",
+			"device": "all",
+			"isdisabled": false,
+			"roundedcorners": true,
+			"visitors": 0,
+			"dtcreated": "2025-03-18T02:32:58.271Z",
+			"stats": [
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			"campaigns": 0
+		}
+	},
+	"tokens": [],
+	"config": {
+		"name": "Banner System",
+		"cdn": "//cdn.componentator.com"
+	}
+}

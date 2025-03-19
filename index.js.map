@@ -1,0 +1,253 @@
+{
+	"routes": [
+		{
+			"id": "banners",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_banners",
+			"input": "id:string,name:string,note:string,size:string,icon:string,color:string,device:{all|desktop|mobile},isdisabled:boolean,roundedcorners:boolean",
+			"permissions": "banners"
+		},
+		{
+			"id": "banners_read",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_banners",
+			"params": "*id:UID",
+			"input": "id:string,name:string,note:string,size:string,icon:string,color:string,device:{all|desktop|mobile},isdisabled:boolean,roundedcorners:boolean",
+			"permissions": "banners"
+		},
+		{
+			"id": "banners_save",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_banners",
+			"input": "id:string,name:string,note:string,size:string,icon:string,color:string,device:{all|desktop|mobile},isdisabled:boolean,roundedcorners:boolean",
+			"permissions": "banners"
+		},
+		{
+			"id": "banners_remove",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_banners",
+			"params": "*id:UID",
+			"input": "id:string,name:string,note:string,size:string,icon:string,color:string,device:{all|desktop|mobile},isdisabled:boolean,roundedcorners:boolean",
+			"permissions": "banners"
+		},
+		{
+			"id": "banners_disable",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_banners",
+			"params": "*id:UID",
+			"input": "id:string,name:string,note:string,size:string,icon:string,color:string,device:{all|desktop|mobile},isdisabled:boolean,roundedcorners:boolean",
+			"permissions": "banners"
+		},
+		{
+			"id": "campaigns",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_banners",
+			"params": "*id:UID",
+			"query": "q:String",
+			"input": "id:string,*bannerid:string,customer:string,*name:string,note:string,*url:string,*limit:{views|clicks|date},count:number,*photo:string,ignore:string,isdisabled:boolean,*dtbeg:date,dtend:date",
+			"permissions": "campaigns"
+		},
+		{
+			"id": "campaigns_read",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_banners",
+			"params": "*id:UID",
+			"input": "id:string,*bannerid:string,customer:string,*name:string,note:string,*url:string,*limit:{views|clicks|date},count:number,*photo:string,ignore:string,isdisabled:boolean,*dtbeg:date,dtend:date",
+			"permissions": "campaigns"
+		},
+		{
+			"id": "campaigns_save",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_banners",
+			"input": "id:string,*bannerid:string,customer:string,*name:string,note:string,*url:string,*limit:{views|clicks|date},count:number,*photo:string,ignore:string,isdisabled:boolean,*dtbeg:date,dtend:date",
+			"permissions": "campaigns"
+		},
+		{
+			"id": "campaigns_remove",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_banners",
+			"params": "*id:UID",
+			"input": "id:string,*bannerid:string,customer:string,*name:string,note:string,*url:string,*limit:{views|clicks|date},count:number,*photo:string,ignore:string,isdisabled:boolean,*dtbeg:date,dtend:date",
+			"permissions": "campaigns"
+		},
+		{
+			"id": "campaigns_disable",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_banners",
+			"params": "*id:UID",
+			"input": "id:string,*bannerid:string,customer:string,*name:string,note:string,*url:string,*limit:{views|clicks|date},count:number,*photo:string,ignore:string,isdisabled:boolean,*dtbeg:date,dtend:date",
+			"permissions": "campaigns"
+		},
+		{
+			"id": "campaigns_reset",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_banners",
+			"params": "*id:UID",
+			"input": "id:string,*bannerid:string,customer:string,*name:string,note:string,*url:string,*limit:{views|clicks|date},count:number,*photo:string,ignore:string,isdisabled:boolean,*dtbeg:date,dtend:date",
+			"permissions": "campaigns"
+		},
+		{
+			"id": "setup_read",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_settings",
+			"input": "*name:string,token:string,totalapi:string,op_reqtoken:string,op_restoken:string",
+			"permissions": "setup"
+		},
+		{
+			"id": "setup_save",
+			"method": "API",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_settings",
+			"input": "*name:string,token:string,totalapi:string,op_reqtoken:string,op_restoken:string",
+			"permissions": "setup"
+		},
+		{
+			"method": "POST",
+			"url": "/api/upload/",
+			"auth": 1,
+			"owner": "controller_api"
+		},
+		{
+			"method": "POST",
+			"url": "/",
+			"auth": 1,
+			"owner": "controller_api",
+			"timeout": 300000
+		},
+		{
+			"method": "POST",
+			"url": "/api/",
+			"auth": 1,
+			"owner": "plugin_banners"
+		},
+		{
+			"method": "GET",
+			"url": "/",
+			"owner": "controller_api"
+		},
+		{
+			"method": "GET",
+			"url": "/x/",
+			"owner": "plugin_banners"
+		},
+		{
+			"method": "GET",
+			"url": "/setup/*",
+			"auth": 1,
+			"owner": "controller_setup"
+		}
+	],
+	"plugins": [
+		{
+			"id": "banners",
+			"name": "@(Banners)",
+			"permissions": "banners"
+		},
+		{
+			"id": "settings",
+			"name": "@(Configuration)",
+			"permissions": "setup"
+		}
+	],
+	"actions": [
+		{
+			"name": "Banners --> query",
+			"input": "id:string,name:string,note:string,size:string,icon:string,color:string,device:{all|desktop|mobile},isdisabled:boolean,roundedcorners:boolean",
+			"permissions": "banners"
+		},
+		{
+			"name": "Banners --> read",
+			"params": "*id:UID",
+			"input": "id:string,name:string,note:string,size:string,icon:string,color:string,device:{all|desktop|mobile},isdisabled:boolean,roundedcorners:boolean",
+			"permissions": "banners"
+		},
+		{
+			"name": "Banners --> save",
+			"input": "id:string,name:string,note:string,size:string,icon:string,color:string,device:{all|desktop|mobile},isdisabled:boolean,roundedcorners:boolean",
+			"permissions": "banners"
+		},
+		{
+			"name": "Banners --> remove",
+			"params": "*id:UID",
+			"input": "id:string,name:string,note:string,size:string,icon:string,color:string,device:{all|desktop|mobile},isdisabled:boolean,roundedcorners:boolean",
+			"permissions": "banners"
+		},
+		{
+			"name": "Banners --> disable",
+			"params": "*id:UID",
+			"input": "id:string,name:string,note:string,size:string,icon:string,color:string,device:{all|desktop|mobile},isdisabled:boolean,roundedcorners:boolean",
+			"permissions": "banners"
+		},
+		{
+			"name": "Campaigns --> query",
+			"params": "*id:UID",
+			"input": "id:string,*bannerid:string,customer:string,*name:string,note:string,*url:string,*limit:{views|clicks|date},count:number,*photo:string,ignore:string,isdisabled:boolean,*dtbeg:date,dtend:date",
+			"query": "q:String",
+			"permissions": "campaigns"
+		},
+		{
+			"name": "Campaigns --> read",
+			"params": "*id:UID",
+			"input": "id:string,*bannerid:string,customer:string,*name:string,note:string,*url:string,*limit:{views|clicks|date},count:number,*photo:string,ignore:string,isdisabled:boolean,*dtbeg:date,dtend:date",
+			"permissions": "campaigns"
+		},
+		{
+			"name": "Campaigns --> save",
+			"input": "id:string,*bannerid:string,customer:string,*name:string,note:string,*url:string,*limit:{views|clicks|date},count:number,*photo:string,ignore:string,isdisabled:boolean,*dtbeg:date,dtend:date",
+			"permissions": "campaigns"
+		},
+		{
+			"name": "Campaigns --> remove",
+			"params": "*id:UID",
+			"input": "id:string,*bannerid:string,customer:string,*name:string,note:string,*url:string,*limit:{views|clicks|date},count:number,*photo:string,ignore:string,isdisabled:boolean,*dtbeg:date,dtend:date",
+			"permissions": "campaigns"
+		},
+		{
+			"name": "Campaigns --> reset",
+			"params": "*id:UID",
+			"input": "id:string,*bannerid:string,customer:string,*name:string,note:string,*url:string,*limit:{views|clicks|date},count:number,*photo:string,ignore:string,isdisabled:boolean,*dtbeg:date,dtend:date",
+			"permissions": "campaigns"
+		},
+		{
+			"name": "Campaigns --> disable",
+			"params": "*id:UID",
+			"input": "id:string,*bannerid:string,customer:string,*name:string,note:string,*url:string,*limit:{views|clicks|date},count:number,*photo:string,ignore:string,isdisabled:boolean,*dtbeg:date,dtend:date",
+			"permissions": "campaigns"
+		},
+		{
+			"name": "Setup --> save",
+			"input": "*name:string,token:string,totalapi:string,op_reqtoken:string,op_restoken:string",
+			"permissions": "setup"
+		},
+		{
+			"name": "Setup --> read",
+			"input": "*name:string,token:string,totalapi:string,op_reqtoken:string,op_restoken:string",
+			"permissions": "setup"
+		}
+	]
+}
