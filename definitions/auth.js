@@ -98,8 +98,8 @@ ON('service', function(counter) {
 // When creating new tokens, make sure to add expiration
 // This can be used in your API endpoint that generates tokens
 global.CREATETOKEN = function(data) {
-   // Refresh token expiration - Set to 365 days
-var expiration = Date.now() + (365 * 86400000); // 365 days * milliseconds per day
+// Refresh token expiration - Set to 30 minutes
+var expiration = Date.now() + (30 * 60000); // 30 minutes * milliseconds per minute
     
     var token = {
         id: UID(),
