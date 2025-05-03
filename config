@@ -1,1 +1,2 @@
-default_uid    : f
+default_uid    : f 
+mongodb_uri  : mongodb+srv://alaouisalaheddin:<U6SIFTzCpafzI0VH>@cluster0.v7wr8bx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
