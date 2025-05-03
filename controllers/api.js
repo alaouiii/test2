@@ -83,10 +83,8 @@ function validateToken(token) {
 		return;
 	}
 	
-	// Refresh token expiration
-	var expiration = CONF.token_expiration ? 
-		Date.now() + (CONF.token_expiration * 60000) : 
-		Date.now() + (14 * 86400000); // 14 days default
+	// Refresh token expiration - Set to 30 minutes
+var expiration = Date.now() + (30 * 60000); // 30 minutes * milliseconds per minute
 	
 	item.lastaccess = Date.now();
 	item.expires = expiration;
