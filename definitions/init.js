@@ -1,21 +1,19 @@
-var db = MAIN.db = MEMORIZE('data');
+// Replace memory-based storage with persistent storage
+var db = MAIN.db = NOSQL('data');
 
+// Initialize collections if they don't exist
 if (!db.banners)
-	db.banners = {};
-
+    db.banners = {};
 if (!db.tokens)
-	db.tokens = [];
-
+    db.tokens = [];
 if (!db.config)
-	db.config = {};
+    db.config = {};
 
 var config = db.config;
-
 if (!config.name)
-	config.name = 'Banner System';
-
+    config.name = 'Banner System';
 if (!config.cdn)
-	config.cdn = '//cdn.componentator.com';
+    config.cdn = '//cdn.componentator.com';
 
 // Fixed settings
 CONF.allow_custom_titles = true;
@@ -34,9 +32,13 @@ COMPONENTATOR('ui', 'exec,locale,aselected,floatingbox,viewbox,page,input,import
 
 // Permissions
 ON('ready', function() {
-	for (var key in F.plugins) {
-		var item = F.plugins[key];
-		if (item.permissions)
-			OpenPlatform.permissions.push.apply(OpenPlatform.permissions, item.permissions);
-	}
+    for (var key in F.plugins) {
+        var item = F.plugins[key];
+        if (item.permissions)
+            OpenPlatform.permissions.push.apply(OpenPlatform.permissions, item.permissions);
+    }
 });
+
+// Optional: Add token expiration configuration
+// Change token expiration to 14 days (in minutes)
+CONF.token_expiration = 20160; // 14 days instead of default
