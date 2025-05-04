@@ -1,44 +1,33 @@
-// Replace memory-based storage with persistent storage
-var db = MAIN.db = NOSQL('data');
+// init.js
 
-// Initialize collections if they don't exist
-if (!db.banners)
-    db.banners = {};
-if (!db.tokens)
-    db.tokens = [];
-if (!db.config)
-    db.config = {};
+FUNC.initData = function() {
+    // Check if banners collection exists in db
+    if (!MAIN.db.banners || Object.keys(MAIN.db.banners).length === 0) {
+        console.log('Initializing default banners...');
 
-var config = db.config;
-if (!config.name)
-    config.name = 'Banner System';
-if (!config.cdn)
-    config.cdn = '//cdn.componentator.com';
+        // Example: insert sample banners
+        MAIN.db.banners['default'] = {
+            id: 'default',
+            title: 'Welcome Banner',
+            image: 'https://yourcdn.com/banner.jpg',
+            link: 'https://yourwebsite.com'
+        };
 
-// Fixed settings
-CONF.allow_custom_titles = true;
-CONF.version = '1';
-CONF.op_icon = 'ti ti-gamepad';
-CONF.op_path = '/setup/';
-
-// Loads configuration
-LOADCONFIG(db.config);
-
-// Additional variables
-MAIN.cache = {};
-
-// UI components
-COMPONENTATOR('ui', 'exec,locale,aselected,floatingbox,viewbox,page,input,importer,box,cloudeditorsimple,validate,loading,intranetcss,notify,message,errorhandler,empty,menu,colorpicker,icons,miniform,clipboard,approve,columns,iframepreview,search,searchinput,fileuploader,formdata,filesaver,filereader,ready,datagrid,stats7,directory,datepicker,preview,pagination,intro', true);
-
-// Permissions
-ON('ready', function() {
-    for (var key in F.plugins) {
-        var item = F.plugins[key];
-        if (item.permissions)
-            OpenPlatform.permissions.push.apply(OpenPlatform.permissions, item.permissions);
+        // Save changes to NOSQL file
+        NOSQL('data').modify({ banners: MAIN.db.banners });
     }
-});
 
-// Optional: Add token expiration configuration
-// Change token expiration to 14 days (in minutes)
-CONF.token_expiration = 20160; // 14 days instead of default
+    // Same for tokens
+    if (!MAIN.db.tokens || !MAIN.db.tokens.length) {
+        console.log('Initializing default tokens...');
+        MAIN.db.tokens.push('my-initial-token');
+
+        // Save tokens
+        NOSQL('data').modify({ tokens: MAIN.db.tokens });
+    }
+
+    console.log('Initialization complete.');
+};
+
+// Run init function on app startup
+FUNC.initData();
