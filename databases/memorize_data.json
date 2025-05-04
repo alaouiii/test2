@@ -1,17 +1,42 @@
 {
 	"banners": {
-		"J15eO21cl61f": {
-			"id": "J15eO21cl61f",
-			"name": "names",
+		"J3rjJX1cK61f": {
+			"id": "J3rjJX1cK61f",
+			"name": "anime",
 			"note": "",
-			"size": "300x300",
-			"icon": "ti ti-adjust",
+			"size": "300x600",
+			"icon": "ti ti-game-board-alt",
 			"color": "",
 			"device": "all",
 			"isdisabled": false,
-			"roundedcorners": false,
-			"visitors": 3,
-			"dtcreated": "2025-03-18T02:24:37.066Z",
+			"roundedcorners": true,
+			"visitors": 0,
+			"dtcreated": "2025-05-04T13:37:04.345Z",
+			"stats": [
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			"campaigns": 2,
+			"dtupdated": "2025-05-04T17:15:07.101Z",
+			"url": ""
+		},
+		"J3rjLa1dK60f": {
+			"id": "J3rjLa1dK60f",
+			"name": "banner",
+			"note": "",
+			"size": "780x90",
+			"icon": "ti ti-address-card",
+			"color": "",
+			"device": "all",
+			"isdisabled": false,
+			"roundedcorners": true,
+			"visitors": 0,
+			"dtcreated": "2025-05-04T13:37:04.345Z",
 			"stats": [
 				0,
 				0,
@@ -22,20 +47,22 @@
 				0
 			],
 			"campaigns": 1,
-			"dtupdated": "2025-03-18T02:25:37.079Z"
+			"dtupdated": "2025-05-04T17:16:07.109Z",
+			"url": ""
 		},
-		"J15fjg1c661f": {
-			"id": "J15fjg1c661f",
-			"name": "anime",
+		"J3sE5F1cF61f": {
+			"id": "J3sE5F1cF61f",
+			"name": "banner300/300",
 			"note": "",
-			"size": "780x90",
+			"size": "300x300",
 			"icon": "ti ti-game-board-alt",
 			"color": "",
 			"device": "all",
 			"isdisabled": false,
 			"roundedcorners": true,
+			"url": "",
 			"visitors": 0,
-			"dtcreated": "2025-03-18T02:32:58.271Z",
+			"dtcreated": "2025-05-04T16:54:04.959Z",
 			"stats": [
 				0,
 				0,
@@ -45,12 +72,41 @@
 				0,
 				0
 			],
-			"campaigns": 0
+			"campaigns": 1,
+			"dtupdated": "2025-05-04T17:16:07.109Z"
+		},
+		"J3sEK21cw61f": {
+			"id": "J3sEK21cw61f",
+			"name": "bannervert",
+			"note": "",
+			"size": "undefinedxundefined",
+			"icon": "ti ti-arrows-v",
+			"color": "",
+			"device": "all",
+			"isdisabled": false,
+			"roundedcorners": true,
+			"url": "",
+			"visitors": 0,
+			"dtcreated": "2025-05-04T16:55:05.054Z",
+			"stats": [
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			"campaigns": 0,
+			"dtupdated": "2025-05-04T17:19:07.134Z"
 		}
 	},
 	"tokens": [],
 	"config": {
 		"name": "Banner System",
-		"cdn": "//cdn.componentator.com"
+		"cdn": "//cdn.componentator.com",
+		"totalapi": "",
+		"op_reqtoken": "",
+		"op_restoken": ""
 	}
 }
