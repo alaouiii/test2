@@ -1,48 +1,61 @@
-// auth.js
+const REG_SETUP = /\/(api|setup)\//;
 
-// NOSQL reference (points to file-based db)
-var db = MAIN.db = {
-    banners: NOSQL('banners'),
-    tokens: NOSQL('tokens'),
-    config: NOSQL('config')
-};
+var USER = { sa: true, permissions: EMPTYARRAY };
+var DDOS = {};
 
-// Load config
-var config = CONF.config = {};
+AUTH(function($) {
 
-// Load configuration from DB (async)
-db.config.find().callback(function(err, response) {
-    if (response && response.length) {
-        for (let key in response[0])
-            config[key] = response[0][key];
-    } else {
-        // default values
-        config.name = 'Banner System';
-        config.cdn = '//cdn.componentator.com';
-        db.config.insert(config); // save defaults
-    }
+	if ($.url === '/x/') {
+		$.invalid();
+		return;
+	}
+
+	if (DDOS[$.ip] && DDOS[$.ip] > 5) {
+		$.invalid();
+		return;
+	}
+
+	var token = $.headers['x-token'] || $.query.token || '0';
+
+	if (REG_SETUP.test($.url)) {
+
+		// Setup interface
+		if (CONF.op_reqtoken && CONF.op_restoken) {
+			OpenPlatform.auth($);
+			return;
+		}
+
+		if (!CONF.token || CONF.token === token) {
+			if (DDOS[$.ip])
+				delete DDOS[$.ip];
+			$.success(USER);
+		} else {
+			if (DDOS[$.ip])
+				DDOS[$.ip]++;
+			else
+				DDOS[$.ip] = 1;
+			$.invalid();
+		}
+
+		return;
+	}
+
+	var item = MAIN.db.tokens.findItem('token', token);
+	if (item) {
+		$.success(item);
+		return;
+	}
+
+	if (DDOS[$.ip])
+		DDOS[$.ip]++;
+	else
+		DDOS[$.ip] = 1;
+
+	$.invalid();
+
 });
 
-// Fixed settings
-CONF.allow_custom_titles = true;
-CONF.version = '1';
-CONF.op_icon = 'ti ti-gamepad';
-CONF.op_path = '/setup/';
-
-// Additional global cache object
-MAIN.cache = {};
-
-// UI components
-COMPONENTATOR('ui', 'exec,locale,aselected,floatingbox,viewbox,page,input,importer,box,cloudeditorsimple,validate,loading,intranetcss,notify,message,errorhandler,empty,menu,colorpicker,icons,miniform,clipboard,approve,columns,iframepreview,search,searchinput,fileuploader,formdata,filesaver,filereader,ready,datagrid,stats7,directory,datepicker,preview,pagination,intro', true);
-
-// Permissions from plugins
-ON('ready', function() {
-    for (var key in F.plugins) {
-        var item = F.plugins[key];
-        if (item.permissions)
-            OpenPlatform.permissions.push.apply(OpenPlatform.permissions, item.permissions);
-    }
+ON('service', function(counter) {
+	if (counter % 15 === 0)
+		DDOS = {};
 });
-
-// Optional token expiration config
-CONF.token_expiration = 20160; // 14 * 24 * 60
